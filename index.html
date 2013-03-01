@@ -398,13 +398,22 @@ function listTeams(){
     success: function(data) {
       var i=1; 
       $.each(data,function() {
-        $("#team" +i).html(this.teamName); i=i+1;
+        $("#team" +i).html("<a rel='popover' class='show'>" + this.teamName +"</a>"+"<p class='more'><br>"+
+          "Manager: " + this.mgrFirst + " " + this.mgrLast + "<br>" +
+          "Phone: " + this.phone + "<br>" +
+          "Sponsor: " + this.sponsor + "<br></p>"); i=i+1;
         console.log(this);
+        //teamPopover();kinda working
+        //hoverTeam();not working
       });
+      teamPopover();
     },
+      //$.each(data,function() {
+      //teamPopover();
+    //end of teamPopover()
     error: function(){
       console.log("There was an error");
-    }
+    } 
   })
 }
 
@@ -491,7 +500,14 @@ var sched8 = [
 //end of game schedule */
 
 
-
+function teamPopover() { 
+  $('.more').hide();
+  $('.show').click(
+  function () {
+    $(this).next('.more').toggle();
+    //track("<i class='icon-resize-vertical'></i> Popover working!")
+  });
+}
  
               
            
@@ -504,7 +520,20 @@ var sched8 = [
 
               // $("#popover").popover();              
               // // });
+  //popover function...called in ajax get above
+  //function hoverTeam(data){
+ 
+ //}//end of hoverTeam
 
+
+ //function hoverTeam(){
+  //$("[rel=popover]").popover({
+   // selector: '[rel=popover]',
+     // html:  true,
+      //  trigger: 'hover',
+       // placement: 'bottom',
+   // });
+//}; end of hoverTeam..don't think it goes here
 }); //document.ready
           
       

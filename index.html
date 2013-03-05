@@ -82,7 +82,7 @@
   <!-- <INPUT TYPE="button" button id= "registerTeam" NAME="button" Value="Submit" onClick="registerTeam(this.form)"> -->
 
   <button id ="registerTeam" button type="button" name="button" class="btn">Register Team</button>
-  <div id="registerTeam"</div>
+  <div id="registerTeam"></div>
   </form>
                     </div>
                     <div id="teamdisplay"></div>  
@@ -431,7 +431,7 @@ function listTeams(){
 //Delete Team
 $.ajax({
     type: "DELETE",
-    url: "backliftapp/team/70a8d972-a102-4305-84c8-e766370fd6e7", 
+    url: "backliftapp/team/8ac752dd-0846-45a9-9722-f2643815bc6a", 
     success: function(data) { 
         console.log("Deleted!");
     } //end success function
@@ -509,11 +509,21 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
                 //setting values of home and away teams with teamName from allTeams(AKA "d")
                 var awayTeam = d[s[w][g][0]-1].teamName 
                 var homeTeam = d[s[w][g][1]-1].teamName
-                awayScore = 0;
-                homeScore = 0; 
+                //awayScore = $(".score-visitor").val();
+                //homeScore = 0; 
 
-                $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td>"+ awayScore + "-" + homeScore + "</td><td class='enterscore  hidden-btn'><a class='btn'>Enter Score</a></td></tr>")
+                $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore'><input type='num' size='2' maxlength='2' class='score-field score-visitor' /><input type='num' size='2' maxlength='2' class='score-field score-home'/></td><td class='enterscore'><a class='enterscore btn'>Enter Score</a></td></tr>")
               }//end games loop
+
+              $('.enterscore a').click(function(){
+                awayScore = $(".score-visitor").val();
+                homeScore = $(".score-home").val();
+                var btn = $(this);
+
+                btn.closest('tr')
+                console.log(awayScore);
+                console.log(homeScore);
+              }); //end click
         } //end if statement for even # of teams
 
 
@@ -527,12 +537,18 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
             var homeTeam = d[s[w][g][1]-2].teamName
             awayScore = 0;
             homeScore = 0;     
-            $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td>"+ awayScore + "-" + homeScore + "</td><td class='enterscore  hidden-btn'><a class='btn'>Enter Score</a></td></tr>")
+            $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore'><input type='num' size='2' maxlength='2' class='score-field score-visitor' /><input type='num' size='2' maxlength='2' class='score-field score-home'/></td><td class='enterscore'><a class='enterscore btn'>Enter Score</a></td></tr>")
             }//end games(g) loop
           } // end ELSE loop for BYE WEEKS if odd # of teams in league
         }// end week(w) loop
       }// end populateSchedule
-            
+
+//$('.enterscore a').click(function(){
+  //var btn = $(this);
+
+  //btn.closest('tr')
+  //console.log('awayScore');
+//});            
           
 }); // end document.ready
           

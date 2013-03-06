@@ -310,146 +310,7 @@
             </div>
             <!-------End Team List -->
 
-           <!-- <div class="span4 box schedule">
-                <h3>Weekly Matchups/Results</h3>
-                <div class="accordion" id="accordion2">
-                  <div class="accordion-group">
-                    <div class="accordion-heading">
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                        Week 1 Schedule
-                      </a>
-                    </div>
-                    <div id="collapseOne" class="accordion-body collapse in">
-                      <div class="accordion-inner">
-                        <table class="games box">
-                          <tr>
-                            <th>Matchup</th>
-                            <th>Final Score</th>
-                          </tr>
-                          <tr>
-                            <td>Team 1 vs Team 2</td>
-                            <td>0 - 0</td>
-                          </tr>
-                          <tr>
-                            <td>Team 3 vs Team 4</td>
-                            <td>0 - 0</td>
-                          </tr>
-                          <tr>
-                            <td>Team 5 vs Team 6</td>
-                            <td>0 - 0</td>
-                          </tr>
-                          <tr>
-                            <td>Team 7 vs Team 8</td>
-                            <td>0 - 0</td>
-                          </tr>
-                        </table>
-                       </div>                   
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-group">
-                    <div class="accordion-heading">
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                        Week 2 Schedule
-                      </a>
-                    </div>
-                    <div id="collapseTwo" class="accordion-body collapse">
-                      <div class="accordion-inner">
-                         <table class="games box">
-                          <tr>
-                            <th>Matchup</th>
-                            <th>Final Score</th>
-                          </tr>
-                          <tr>
-                            <td>Team 1 vs Team 2</td>
-                            <td>0 - 0</td>
-                          </tr>
-                          <tr>
-                            <td>Team 3 vs Team 4</td>
-                            <td>0 - 0</td>
-                          </tr>
-                          <tr>
-                            <td>Team 5 vs Team 6</td>
-                            <td>0 - 0</td>
-                          </tr>
-                          <tr>
-                            <td>Team 7 vs Team 8</td>
-                            <td>0 - 0</td>
-                          </tr>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-group">
-                    <div class="accordion-heading">
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                        Week 3 Schedule
-                      </a>
-                    </div>
-                    <div id="collapseThree" class="accordion-body collapse">
-                      <div class="accordion-inner">
-                         <table class="games box">
-                          <tr>
-                            <th>Matchup</th>
-                            <th>Final Score</th>
-                          </tr>
-                          <tr>
-                            <td>Team 1 vs Team 2</td>
-                            <td>0 - 0</td>
-                          </tr>
-                          <tr>
-                            <td>Team 3 vs Team 4</td>
-                            <td>0 - 0</td>
-                          </tr>
-                          <tr>
-                            <td>Team 5 vs Team 6</td>
-                            <td>0 - 0</td>
-                          </tr>
-                          <tr>
-                            <td>Team 7 vs Team 8</td>
-                            <td>0 - 0</td>
-                          </tr>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-group">
-                    <div class="accordion-heading">
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-                        Week 4 Schedule
-                      </a>
-                    </div>
-                    <div id="collapseFour" class="accordion-body collapse">
-                      <div class="accordion-inner">
-                         <table class="games box">
-                          <tr>
-                            <th>Matchup</th>
-                            <th>Final Score</th>
-                          </tr>
-                          <tr>
-                            <td>Team 1 vs Team 2</td>
-                            <td>0 - 0</td>
-                          </tr>
-                          <tr>
-                            <td>Team 3 vs Team 4</td>
-                            <td>0 - 0</td>
-                          </tr>
-                          <tr>
-                            <td>Team 5 vs Team 6</td>
-                            <td>0 - 0</td>
-                          </tr>
-                          <tr>
-                            <td>Team 7 vs Team 8</td>
-                            <td>0 - 0</td>
-                          </tr>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <p><a class="btn" id="startSeason">Start Season</a></p>
-                <p><a class="btn" id="sortStandings">Update Standings</a></p>
-        </div> -->
+           
         <div class="row">
           <div class="span6 box">
              <div id="gameschedule" class="tab-pane hero-unit gameschedule">
@@ -508,17 +369,15 @@ $('#registerTeam').click(function() {
     data:team, // this line is the objcet name that i am sending to the server//
     success: function(data){
       console.log(data);
-      allTeams.push(data); //pushing all info into main allTeams array created at top
-      //this is where I need to add the info to the page
-       //recommended to call another function to add the data to another page
-      
+      allTeams.push(data);       
     },
     error: function(){
       console.log("There was an error");
     }
   }); //end of ajax "post"
 
-  $("#signup")[0].reset(); //resets form after each time register is clicked
+  //resets form after each time register is clicked
+  $("#signup")[0].reset(); 
 
 
 
@@ -537,7 +396,8 @@ function listTeams(){
           "<strong>Sponsor: </strong>" + this.sponsor + "<br></p>"); i=i+1;
         console.log(this);
       }); //end each loop
-      teamPopover(); //calling function..has to be after loop but before close of success function to work properly
+      //calling teamPopover..has to be after loop but before close of success function to work properly
+      teamPopover(); 
     }, //end success function
   
     error: function(){
@@ -547,7 +407,8 @@ function listTeams(){
 } //end listTeams functionality
 
 
-//Delete Team
+// start Delete Team
+//use this code to delete teams that have been entered - replace id number above with id number from ajax data file
 $.ajax({
     type: "DELETE",
     url: "backliftapp/team/8ac752dd-0846-45a9-9722-f2643815bc6a", 
@@ -555,11 +416,9 @@ $.ajax({
         console.log("Deleted!");
     } //end success function
 }); //end ajax DELETE
- //use this code to delete teams that have been entered - replace id number above with id number from ajax data file
+
 
 listTeams();//calling listTeams
-
-
 
 
 function teamPopover() { 
@@ -609,7 +468,9 @@ $('#startSeason').click(function(){
     [ [1, 2], [3, 8], [4, 7], [5, 6] ],
     ];//end schedule variables
 
-function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to allTeams array in "get" above
+
+// Note: (d) is from ajax "data", set equal to allTeams array in "get" above
+function populateSchedule (d) {  
       if (d.length < 4) {
           alert('Must have at least 4 teams to continue!');
       }
@@ -641,7 +502,7 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
 
        else{
             var teamwithBye = d[s[w][0][1]-2].teamName
-            $('#scheduleTable').append("<tbody id='week" + w + "'class='tablehead'><tr><th>Week " + [w + 1] + "<br/>" +teamwithBye + " have a Bye</th><th>Score" + "</th><th class='enterscore hidden-btn'>Update</th></tr></tbody>") //original scheduleTable
+            $('#scheduleTable').append("<tbody id='week" + w + "'class='tablehead'><tr><th>Week " + [w + 1] + "<br/>" +teamwithBye + " have a Bye</th><th>Score" + "</th><th class='enterscore hidden-btn'>Update</th></tr></tbody>") 
 
             for (g = 1 ; g < s[w].length; g++) {
 
@@ -655,7 +516,8 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
         }// end week(w) loop
 
       //start score input function
-      var allScores = new Array (); //declaring array for all teams in league
+      //declaring array for all teams in league
+      var allScores = new Array (); 
 
         $('a.btn').click(function(ev){
           ev.preventDefault();
@@ -675,7 +537,8 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
           console.log(scoreHome);
           console.log(nameAway);
           console.log(nameHome);
-          //addResults(); //calling function to add wins or losses to correct team
+          //calling function to add wins or losses to correct team
+          //addResults(); 
           
           // start ajax to save scores
           /*$.ajax({
@@ -708,22 +571,18 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
               dataType: 'json',
               success: function(data) {
               allTeams = data;
+              // start Pseudo Code
               // if(awayscore > homescore),
               // then add 1 to the wins value in allTeams array for correct team,
               // else (add 1 to losses of that team);
+
              }//end success
           });//end Ajax get
           } //end if
         } //end addResults
 
       }// end populateSchedule
-
-//$('.enterscore a').click(function(){
-  //var btn = $(this);
-
-  //btn.closest('tr')
-  //console.log('awayScore');
-//});            
+            
           
 }); // end document.ready
           

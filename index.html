@@ -187,11 +187,12 @@
                     <td>.000</td>
                   </tr>
                 </table>
-              
+                <p><a class="btn" id="startSeason">Start Season</a></p>
+                <p><a class="btn" id="sortStandings">Update Standings</a></p>
             </div>
             <!-------End Team List -->
 
-            <div class="span4 box schedule">
+           <!-- <div class="span4 box schedule">
                 <h3>Weekly Matchups/Results</h3>
                 <div class="accordion" id="accordion2">
                   <div class="accordion-group">
@@ -330,7 +331,7 @@
                 </div>
                 <p><a class="btn" id="startSeason">Start Season</a></p>
                 <p><a class="btn" id="sortStandings">Update Standings</a></p>
-        </div>
+        </div> -->
         <div class="row">
           <div class="span6 box">
              <div id="gameschedule" class="tab-pane hero-unit gameschedule">
@@ -512,10 +513,11 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
                 //awayScore = $(".score-visitor").val();
                 //homeScore = 0; 
 
-                $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore'><input type='num' size='2' maxlength='2' class='score-field score-visitor' /><input type='num' size='2' maxlength='2' class='score-field score-home'/></td><td class='enterscore'><a class='enterscore btn'>Enter Score</a></td></tr>")
+                $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore' data-awayName='"+ awayTeam +"' data-homeName='"+ homeTeam +"'><input type='num' size='2' maxlength='2' class='score-field score-visitor' /><input type='num' size='2' maxlength='2' class='score-field score-home'/></td><td class='enterscore'><a class='enterscore btn' id='" + w + "' href=''>Enter Score</a></td></tr>")
               }//end games loop
 
-              $('.enterscore a').click(function(){
+
+             /* $('.enterscore a').click(function(){
                 awayScore = $(".score-visitor").val();
                 homeScore = $(".score-home").val();
                 var btn = $(this);
@@ -523,7 +525,7 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
                 btn.closest('tr')
                 console.log(awayScore);
                 console.log(homeScore);
-              }); //end click
+              }); //end click */
         } //end if statement for even # of teams
 
 
@@ -535,12 +537,58 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
 
             var awayTeam = d[s[w][g][0]-2].teamName 
             var homeTeam = d[s[w][g][1]-2].teamName
-            awayScore = 0;
-            homeScore = 0;     
-            $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore'><input type='num' size='2' maxlength='2' class='score-field score-visitor' /><input type='num' size='2' maxlength='2' class='score-field score-home'/></td><td class='enterscore'><a class='enterscore btn'>Enter Score</a></td></tr>")
+            //awayScore = 0;
+            //homeScore = 0;     
+            $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore' data-awayName='"+ awayTeam +"' data-homeName='"+ homeTeam +"'><input type='num' size='2' maxlength='2' class='score-field score-visitor' /><input type='num' size='2' maxlength='2' class='score-field score-home'/></td><td class='enterscore'><a class='enterscore btn'>Enter Score</a></td></tr>")
             }//end games(g) loop
           } // end ELSE loop for BYE WEEKS if odd # of teams in league
         }// end week(w) loop
+
+      //start score input function
+      var allScores = new Array (); //declaring array for all teams in league
+
+        $('a.btn').click(function(ev){
+          ev.preventDefault();
+          
+          var week = $(this).attr("id");
+
+
+          var scoreVisitor = $(this).parent().prev().find('.score-visitor').val();
+          var scoreHome = $(this).parent().prev().find('.score-home').val();
+          //var nameHome = $(this).homeTeam;
+          var nameHome = $(this).parent().prev().data('homename');
+          var nameAway = $(this).parent().prev().data('awayname');
+          
+
+          // scoreData = function(){ 
+          //   this.scoreHome =$("scoreHome").val();
+          //   this.scoreVisitor =$("scoreVisitor").val();
+          // }; 
+          
+          console.log(scoreVisitor);
+          console.log(scoreHome);
+          console.log(nameAway);
+          console.log(nameHome);
+          //addResults(); //calling function to add wins or losses to correct team
+          // console.log(scoreData);
+          // alert(scoreData);
+
+      }); //end score input click function
+
+        function addResults(){
+          if(scoreVisitor > scoreHome){
+             $.ajax({
+              url: '/backliftapp/team',
+              type: "PUT",
+              dataType: 'json',
+              success: function(data) {
+              allTeams = data;
+              ;
+             }//end success
+          });//end Ajax get
+          }
+        }
+
       }// end populateSchedule
 
 //$('.enterscore a').click(function(){

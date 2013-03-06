@@ -9,7 +9,125 @@
         <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
        <!-- <script type="text/javascript" src="jquery.carouFredSel-6.2.0.js"></script> -->
-         <!-- <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script> -->    
+        <!-- <script type="text/javascript" src="js/validation.js"></script> -->
+        <style>
+          .btn{
+            color: blue;
+          }
+
+          .show{
+            font-weight: thick;
+            color: blue;
+          }
+
+          .show:hover{
+            text-decoration: none;
+            color: black;
+            font-size: 115%;
+            font-weight: thick;
+          }
+
+                .box{
+                background: rgba(0,0,0,0.2);
+                padding: 10px 0px;
+                text-align: center;
+                margin-top: 10px;
+                border-radius: 5px;
+
+            }
+
+            .box h3, .box h4, .box p, .box a{
+                padding-left: 6px;
+            }
+
+            .what1, .side, .three{
+                text-align: left;
+            }
+
+            .newsletter{
+                background: #ffcc99;
+            }
+
+            .carousel-indicators {
+                right: 42px;
+            }   
+
+            .carousel-control.left{
+                margin-left: 91px;
+            }
+
+            .windowpane{
+                margin-top: 60px;
+
+            }
+
+            .maintext{
+                  
+                background-image: url("img/beer.jpg");
+                height: 600px;
+                
+            }
+
+            .hero-unit{
+              padding: 0;
+            }
+
+
+
+            .control-group{
+                display: inline-block;
+                width: 400px;
+            }
+
+            .control-label{
+                display: inline-block;
+            }
+            .controls{
+                display: inline-block;
+            }
+
+            .input-prepend{
+                margin-bottom: 4px;
+            }
+
+          
+
+            .maintext a{
+                margin-left: 350px;
+            }
+
+            .alert-error{
+                background-color: #cc6666;
+                color: #660000;
+                margin-top: 330px;
+                text-align: center;
+            }
+
+          .maintext h1, .maintext h3, .maintext p{
+            color: white;
+            text-align: center;
+          }
+
+          .maintext p{
+            width: 580px;
+            line-height: 25px;
+          }
+
+          tbody, .schedule{
+            text-align: center;
+            background-image: url("img/beer_side.jpg");
+          }
+
+          .gameschedule{
+            background-image: url("img/beer-side.jpg");
+          }
+
+          .games{
+            width: 335px;
+            background: rgba(0,0,0,0.14);
+          }
+        </style>
+
     </head>
     <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -52,11 +170,14 @@
         <div class="hero-unit">
             <div class="row">
                 <div class="span12 maintext">
-                    <!-- <h1>Beer League Baseball!</h1>
+                    <h1>Beer League Baseball!</h1>
                     <h3>There's No Crying in Baseball!....But there is BEER!!!</h3>
-                    <p>It's that time of year again. Who doesn't love BEER and BASEBALL? Join our league today for FREE. Weekly matchups with other fanatics here in Nashville.</p><p>Serious people need not apply...</p> -->
                     
                     <a href="#myModal" role="button" class="btn" id="launch" data-toggle="modal">SIGN UP TODAY</a>
+                    <div class="alert alert-error">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <strong>HURRY!</strong> Registration will close very soon!
+                    </div>
                     <!-- Modal -->
                     <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                       <div class="modal-header">
@@ -64,34 +185,31 @@
                         <h3 id="myModalLabel">Team Registration Form</h3>
                       </div>
                       
-                      <form class="form-horizontal" id="signup">
+                      <form class="form-horizontal commentForm" id="signup">
                         <fieldset>
-     <legend>Registraion</legend>
+                          <legend>Registraion</legend>
                             <label>Team Name</label>
-    <input type="text" id="teamName" name = "teamName" placeholder="Team Name" value="">
-      <label>Manager Name</label>
-        <input id="mgrFirst" name = "mgrFirst" type="text" placeholder="First Name" value="">
-      <input id="mgrLast" name = "mgrLast" type="text" placeholder="Last Name" value="">
-      <label>Manager Phone Number</label>
-      <input type="text" id="phone" name = "phone"placeholder="Phone Number" value="">
-    <label>Manager Zip Code</label>
-    <input type="text" id="zip" name = "zip"placeholder="Zip Code" value="">
-  <label>Sponsor</label>
-  <input type="text" id="sponsor" name = "sponsor" placeholder="Team Sponsor" value=""></br>
-  
-  <!-- <INPUT TYPE="button" button id= "registerTeam" NAME="button" Value="Submit" onClick="registerTeam(this.form)"> -->
+                              <input type="text" id="teamName" name = "teamName" placeholder="Team Name" value="">
+                            <label>Manager Name</label>
+                              <input id="mgrFirst" name = "mgrFirst" type="text" placeholder="First Name" value="">
+                              <input id="mgrLast" name = "mgrLast" type="text" placeholder="Last Name" value="">
+                            <label>Manager Phone Number</label>
+                              <input type="text" id="phone" name = "phone"placeholder="Phone Number" value="">
+                            <label>Manager Zip Code</label>
+                              <input type="text" id="zip" name = "zip"placeholder="Zip Code" value="">
+                            <label>Sponsor</label>
+                              <input type="text" id="sponsor" name = "sponsor" placeholder="Team Sponsor" value=""></br>
+                            
+                            <!-- <INPUT TYPE="button" button id= "registerTeam" NAME="button" Value="Submit" onClick="registerTeam(this.form)"> -->
 
-  <button id ="registerTeam" button type="button" name="button" class="btn">Register Team</button>
-  <div id="registerTeam"</div>
-  </form>
+                            <button id ="registerTeam" button type="button" name="button" class="btn">Register Team</button>
+                            <div id="registerTeam"></div>
+                      </form>
                     </div>
                     <div id="teamdisplay"></div>  
                 </div>
             </div>
-          <!-- <div class="alert alert-error">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <strong>Don't Wait!</strong> Registration will close on Feb 28th!
-          </div>  -->
+          
         </div>
         <!-- <div class="row">
             <div class="span12 box what1">
@@ -114,7 +232,7 @@
 
           <!---Start Team List -->
             <div class="span8 box three">   
-                <table class="table" id="standings">                  
+                <table class="table table-striped" id="standings">                  
                   <tr>
                     <th>Team</th>
                     <th>Wins</th>
@@ -187,11 +305,12 @@
                     <td>.000</td>
                   </tr>
                 </table>
-              
+                <p><a class="btn" id="startSeason">Start Season</a></p>
+                <p><a class="btn" id="sortStandings">Update Standings</a></p>
             </div>
             <!-------End Team List -->
 
-            <div class="span4 box schedule">
+           <!-- <div class="span4 box schedule">
                 <h3>Weekly Matchups/Results</h3>
                 <div class="accordion" id="accordion2">
                   <div class="accordion-group">
@@ -328,9 +447,21 @@
                     </div>
                   </div>
                 </div>
-                <p><a class="btn" href="#">Read more</a></p>
-            </div>
-        </div>
+                <p><a class="btn" id="startSeason">Start Season</a></p>
+                <p><a class="btn" id="sortStandings">Update Standings</a></p>
+        </div> -->
+        <div class="row">
+          <div class="span6 box">
+             <div id="gameschedule" class="tab-pane hero-unit gameschedule">
+            
+                <h3>Schedule</h3>
+                <p class="matchups">Who's Playing Who?</p>
+                <table class="table table-striped" id="scheduleTable">
+                  
+                </table>
+             </div> <!-- End Schedule Tab -->
+          </div>
+         </div> 
         <div class="row">
             <div class="span12 box newsletter">
                 <h4>Sign up for our newsletter</h4>
@@ -349,13 +480,13 @@
             <p>© Company 2013</p>
         </footer>
     </div>
-    <script>
+  <script>
            
-           $(document).ready(function(){
-              //form validation
-              // $("#commentForm").validate();
+    $(document).ready(function(){
+        //form validation
+        //$(".commentForm").validate();
 
-var allTeams = new Array ();
+var allTeams = new Array (); //declaring array for all teams in league
 
 
 $('#registerTeam').click(function() {
@@ -366,6 +497,8 @@ $('#registerTeam').click(function() {
   team.phone = $("#phone").val();
   team.zip = $("#zip").val();
   team.sponsor = $("#sponsor").val();
+  team.wins = 0;
+  team.losses = 0;
   console.log(team);
 
   $.ajax({
@@ -375,7 +508,7 @@ $('#registerTeam').click(function() {
     data:team, // this line is the objcet name that i am sending to the server//
     success: function(data){
       console.log(data);
-      allTeams.push(data);
+      allTeams.push(data); //pushing all info into main allTeams array created at top
       //this is where I need to add the info to the page
        //recommended to call another function to add the data to another page
       
@@ -398,118 +531,207 @@ function listTeams(){
     success: function(data) {
       var i=1; 
       $.each(data,function() {
-        $("#team" +i).html(this.teamName); i=i+1;
+        $("#team" +i).html("<a rel='popover' class='show'>" + this.teamName +"</a>"+"<p class='more'><br>"+
+          "<strong>Manager: </strong>" + this.mgrFirst + " " + this.mgrLast + "<br>" +
+          "<strong>Phone: </strong>" + this.phone + "<br>" +
+          "<strong>Sponsor: </strong>" + this.sponsor + "<br></p>"); i=i+1;
         console.log(this);
-      });
-    },
+      }); //end each loop
+      teamPopover(); //calling function..has to be after loop but before close of success function to work properly
+    }, //end success function
+  
     error: function(){
       console.log("There was an error");
-    }
-  })
-}
-
- //set scheduleId
- /*for (var i = 0; i < data.length; i++) {
-          data[i]['scheduleId'] = i + 1;
-      }
-
- //game schedule
- for (var i = 0; i < data.length; i++) {
-        $('.games').append(data[i].name + " is team # " + data[i].scheduleId + "<br>");
-      }
-      setSchedule(data.length);//calling setSchedule*/
+    } //end error function 
+  }) //end ajax get
+} //end listTeams functionality
 
 
+//Delete Team
 $.ajax({
     type: "DELETE",
-    url: "/backliftapp/team/018ba7ee-f0a8-492e-aa0c-51bae6ff7ba9", 
+    url: "backliftapp/team/8ac752dd-0846-45a9-9722-f2643815bc6a", 
     success: function(data) { 
         console.log("Deleted!");
-    } 
-});  //use this code to delete teams that have been entered - replace id number above with id number from ajax data file
+    } //end success function
+}); //end ajax DELETE
+ //use this code to delete teams that have been entered - replace id number above with id number from ajax data file
 
-listTeams();
+listTeams();//calling listTeams
 
-//trying to console.log allTeams.length
-function createSchedule(){
-$.ajax({
-    url: "/backliftapp/team",
-    type: "get",
-    dataType: "JSON",
-    data:allTeams,
-    success: function(data){
-      console.log(data.length);
-      if (data.length < 4){
-        console.log("not enough teams");
-      } else if (data.length === 4){
-        console.log()
+
+
+
+function teamPopover() { 
+  $('.more').hide();
+  $('.show').click(
+  function () {
+    $(this).next('.more').toggle();
+  });
+}//end teamPopover
+
+// functionality of using the right schedule for the # of teams in league and populting schedule with actual team names
+// event listener is #startSeason button on click
+$('#startSeason').click(function(){
+  $.ajax({
+      url: '/backliftapp/team',
+      type: "GET",
+      dataType: 'json',
+      success: function(data) {
+      allTeams = data;
+      populateSchedule(data);
+     }//end success
+  });//end Ajax get
+});//end startSeason click
+
+      //declaring schedule variables
+      var sched4 = [ 
+    [ [1, 4], [2, 3] ],
+    [ [1, 3], [2, 4] ],
+    [ [1, 2], [3, 4] ]
+    ];
+
+    var sched6 = [ 
+    [ [1, 6], [2, 5], [3, 4] ],
+    [ [1, 5], [4, 6], [2, 3] ],
+    [ [1, 4], [3, 5], [2, 6] ],
+    [ [1, 3], [2, 4], [5, 6] ],
+    [ [1, 2], [3, 6], [4, 5] ],
+    ];
+
+    var sched8 = [
+    [ [1, 8], [2, 7], [3, 6], [4, 5] ],
+    [ [1, 7], [6, 8], [2, 5], [3, 4] ],
+    [ [1, 6], [5, 7], [4, 8], [2, 3] ],
+    [ [1, 5], [4, 6], [3, 7], [2, 8] ],
+    [ [1, 4], [3, 5], [2, 6], [7, 8] ],
+    [ [1, 3], [2, 4], [5, 8], [6, 7] ],
+    [ [1, 2], [3, 8], [4, 7], [5, 6] ],
+    ];//end schedule variables
+
+function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to allTeams array in "get" above
+      if (d.length < 4) {
+          alert('Must have at least 4 teams to continue!');
       }
-      
-      
-      },//end of success function()
-    });//end of Ajax
-}//end of createSchedule
+      else if (d.length === 4) {
+        var s = sched4;
+      } else if (d.length === 5 || d.length === 6) {
+        var s = sched6;
+      } else{
+        var s = sched8;
+      } //end schedule conditional based on # of teams
 
-  createSchedule();
-
-//populate schedule
-/*function setSchedule(x) {
-  if (x === 4) {
-    $('.games').append(sched4);
-  } else if (x === 5 || x === 6) {
-    $('.games').append(sched6);
-  } else if (x === 7 || x === 8) {
-    $('.games').append(sched8);
-  } else {
-    $('.games').append('<p class="text-error">There are not enough teams to start season play<p>');
-  }
-}
-
-var sched4 = [ 
-[ [1, 4], [2, 3] ], 
-[ [1, 3], [2, 4] ],
-[ [1, 2], [3, 4] ]
-];
-
-var sched6 = [ 
-[ [1, 6], [2, 5], [3, 4] ],
-[ [1, 5], [4, 6], [2, 3] ],
-[ [1, 4], [3, 5], [2, 6] ],
-[ [1, 3], [2, 4], [5, 6] ],
-[ [1, 2], [3, 6], [4, 5] ]
-];
-
-var sched8 = [
-[ [1, 8], [2, 7], [3, 6], [4, 5] ],
-[ [1, 7], [6, 8], [2, 5], [3, 4] ],
-[ [1, 6], [5, 7], [4, 8], [2, 3] ],
-[ [1, 5], [4, 6], [3, 7], [2, 8] ],
-[ [1, 4], [3, 5], [2, 6], [7, 8] ],
-[ [1, 3], [2, 4], [5, 8], [6, 7] ],
-[ [1, 2], [3, 8], [4, 7], [5, 6] ]
-];
-//end of game schedule */
-
-
-
- 
+      //d-allTeams s-schedule w-weeks g-games 
+      for (w = 0 ; w < s.length ; w++) {
+        //if statement for even # of teams
+        if (d.length%2 === 0){ 
+              $('#scheduleTable').append("<tbody id='week" + w + "'class='tablehead'><tr><th>Week " + [w + 1] + "</th><th>Score" + "</th></tr></tbody>");
               
-           
-             
-              
+              for (g = 0 ; g < s[w].length; g++) {
+                //setting values of home and away teams with teamName from allTeams(AKA "d")
+                var awayTeam = d[s[w][g][0]-1].teamName 
+                var homeTeam = d[s[w][g][1]-1].teamName
+                //awayScore = $(".score-visitor").val();
+                //homeScore = 0; 
 
-           
-         
-              // $("#foo1").carouFredSel();   
+                $("#week" + w).append("<div class='schedule'><tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore' data-awayName='"+ awayTeam +"' data-homeName='"+ homeTeam +"'><input type='num' size='2' maxlength='2' class='score-field score-visitor' />-<input type='num' size='2' maxlength='2' class='score-field score-home'/></td><td class='enterscore'><a class='enterscore btn' id='" + w + "' href=''>Enter Score</a></td></tr></div>")
+              }//end games loop
+        } //end if statement for even # of teams
 
-              // $("#popover").popover();              
-              // // });
 
-}); //document.ready
+       else{
+            var teamwithBye = d[s[w][0][1]-2].teamName
+            $('#scheduleTable').append("<tbody id='week" + w + "'class='tablehead'><tr><th>Week " + [w + 1] + "<br/>" +teamwithBye + " have a Bye</th><th>Score" + "</th><th class='enterscore hidden-btn'>Update</th></tr></tbody>") //original scheduleTable
+
+            for (g = 1 ; g < s[w].length; g++) {
+
+            var awayTeam = d[s[w][g][0]-2].teamName 
+            var homeTeam = d[s[w][g][1]-2].teamName
+            //awayScore = 0;
+            //homeScore = 0;     
+            $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore' data-awayName='"+ awayTeam +"' data-homeName='"+ homeTeam +"'><input type='num' size='2' maxlength='2' class='score-field score-visitor' /><input type='num' size='2' maxlength='2' class='score-field score-home'/></td><td class='enterscore'><a class='enterscore btn'>Enter Score</a></td></tr>")
+            }//end games(g) loop
+          } // end ELSE loop for BYE WEEKS if odd # of teams in league
+        }// end week(w) loop
+
+      //start score input function
+      var allScores = new Array (); //declaring array for all teams in league
+
+        $('a.btn').click(function(ev){
+          ev.preventDefault();
+          
+          var week = $(this).attr("id");
+
+
+          var scoreVisitor = $(this).parent().prev().find('.score-visitor').val();
+          var scoreHome = $(this).parent().prev().find('.score-home').val();
+          //var nameHome = $(this).homeTeam;
+          var nameHome = $(this).parent().prev().data('homename');
+          var nameAway = $(this).parent().prev().data('awayname');
+          
+
+          
+          console.log(scoreVisitor);
+          console.log(scoreHome);
+          console.log(nameAway);
+          console.log(nameHome);
+          //addResults(); //calling function to add wins or losses to correct team
+          
+          // start ajax to save scores
+          /*$.ajax({
+                    type: 'POST',
+                    url: 'backliftapp/scores',
+                    dataType: "JSON",
+                    data: {
+                      "game": s[w],
+                      "scoreHome": (".score-home").val();
+                      "scoreAway": (".score-visitor").val;
+                    }
+                    success: function(data){
+                    allScores.push(data);
+                    };  
+                  });///end AJAX post */
+
+      }); //end score input click function
+
+        ///// start of ajax put to add to .wins and .losses of teams based on scores
+        ///// Can't get values pulled out from home and away teams because they're not being
+        ///// assigned using the allTeams array. AKA scores and teams have no relationship right now.
+        ///// tried moving function up into schedule loop, but the loop is already finished so it 
+        ///// will always use the home and away teams from the very last game of the "season". 
+
+        function addResults(){
+          if(scoreVisitor > scoreHome){
+             $.ajax({
+              url: '/backliftapp/team',
+              type: "PUT",
+              dataType: 'json',
+              success: function(data) {
+              allTeams = data;
+              // if(awayscore > homescore),
+              // then add 1 to the wins value in allTeams array for correct team,
+              // else (add 1 to losses of that team);
+             }//end success
+          });//end Ajax get
+          } //end if
+        } //end addResults
+
+      }// end populateSchedule
+
+//$('.enterscore a').click(function(){
+  //var btn = $(this);
+
+  //btn.closest('tr')
+  //console.log('awayScore');
+//});            
+          
+}); // end document.ready
           
       
 
-        </script>
-          </body>
-          </html>
+  </script>
+</body>
+</html>
+
+
 

@@ -9,7 +9,125 @@
         <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
        <!-- <script type="text/javascript" src="jquery.carouFredSel-6.2.0.js"></script> -->
-         <!-- <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script> -->    
+         <!-- <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script> -->  
+        <style>
+          .btn{
+            color: blue;
+          }
+
+          .show{
+            font-weight: thick;
+            color: blue;
+          }
+
+          .show:hover{
+            text-decoration: none;
+            color: black;
+            font-size: 115%;
+            font-weight: thick;
+          }
+
+                .box{
+                background: rgba(0,0,0,0.2);
+                padding: 10px 0px;
+                text-align: center;
+                margin-top: 10px;
+                border-radius: 5px;
+
+            }
+
+            .box h3, .box h4, .box p, .box a{
+                padding-left: 6px;
+            }
+
+            .what1, .side, .three{
+                text-align: left;
+            }
+
+            .newsletter{
+                background: #ffcc99;
+            }
+
+            .carousel-indicators {
+                right: 42px;
+            }   
+
+            .carousel-control.left{
+                margin-left: 91px;
+            }
+
+            .windowpane{
+                margin-top: 60px;
+
+            }
+
+            .maintext{
+                  
+                background-image: url("img/beer.jpg");
+                height: 600px;
+                
+            }
+
+            .hero-unit{
+              padding: 0;
+            }
+
+
+
+            .control-group{
+                display: inline-block;
+                width: 400px;
+            }
+
+            .control-label{
+                display: inline-block;
+            }
+            .controls{
+                display: inline-block;
+            }
+
+            .input-prepend{
+                margin-bottom: 4px;
+            }
+
+          
+
+            .maintext a{
+                margin-left: 350px;
+            }
+
+            .alert-error{
+                background-color: #cc6666;
+                color: #660000;
+                margin-top: 330px;
+                text-align: center;
+            }
+
+          .maintext h1, .maintext h3, .maintext p{
+            color: white;
+            text-align: center;
+          }
+
+          .maintext p{
+            width: 580px;
+            line-height: 25px;
+          }
+
+          tbody, .schedule{
+            text-align: center;
+            background-image: url("img/beer_side.jpg");
+          }
+
+          .gameschedule{
+            background-image: url("img/beer-side.jpg");
+          }
+
+          .games{
+            width: 335px;
+            background: rgba(0,0,0,0.14);
+          }
+        </style>
+
     </head>
     <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -52,11 +170,14 @@
         <div class="hero-unit">
             <div class="row">
                 <div class="span12 maintext">
-                    <!-- <h1>Beer League Baseball!</h1>
+                    <h1>Beer League Baseball!</h1>
                     <h3>There's No Crying in Baseball!....But there is BEER!!!</h3>
-                    <p>It's that time of year again. Who doesn't love BEER and BASEBALL? Join our league today for FREE. Weekly matchups with other fanatics here in Nashville.</p><p>Serious people need not apply...</p> -->
                     
                     <a href="#myModal" role="button" class="btn" id="launch" data-toggle="modal">SIGN UP TODAY</a>
+                    <div class="alert alert-error">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <strong>HURRY!</strong> Registration will close very soon!
+                    </div>
                     <!-- Modal -->
                     <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                       <div class="modal-header">
@@ -66,32 +187,29 @@
                       
                       <form class="form-horizontal" id="signup">
                         <fieldset>
-     <legend>Registraion</legend>
+                          <legend>Registraion</legend>
                             <label>Team Name</label>
-    <input type="text" id="teamName" name = "teamName" placeholder="Team Name" value="">
-      <label>Manager Name</label>
-        <input id="mgrFirst" name = "mgrFirst" type="text" placeholder="First Name" value="">
-      <input id="mgrLast" name = "mgrLast" type="text" placeholder="Last Name" value="">
-      <label>Manager Phone Number</label>
-      <input type="text" id="phone" name = "phone"placeholder="Phone Number" value="">
-    <label>Manager Zip Code</label>
-    <input type="text" id="zip" name = "zip"placeholder="Zip Code" value="">
-  <label>Sponsor</label>
-  <input type="text" id="sponsor" name = "sponsor" placeholder="Team Sponsor" value=""></br>
-  
-  <!-- <INPUT TYPE="button" button id= "registerTeam" NAME="button" Value="Submit" onClick="registerTeam(this.form)"> -->
+                              <input type="text" id="teamName" name = "teamName" placeholder="Team Name" value="">
+                            <label>Manager Name</label>
+                              <input id="mgrFirst" name = "mgrFirst" type="text" placeholder="First Name" value="">
+                              <input id="mgrLast" name = "mgrLast" type="text" placeholder="Last Name" value="">
+                            <label>Manager Phone Number</label>
+                              <input type="text" id="phone" name = "phone"placeholder="Phone Number" value="">
+                            <label>Manager Zip Code</label>
+                              <input type="text" id="zip" name = "zip"placeholder="Zip Code" value="">
+                            <label>Sponsor</label>
+                              <input type="text" id="sponsor" name = "sponsor" placeholder="Team Sponsor" value=""></br>
+                            
+                            <!-- <INPUT TYPE="button" button id= "registerTeam" NAME="button" Value="Submit" onClick="registerTeam(this.form)"> -->
 
-  <button id ="registerTeam" button type="button" name="button" class="btn">Register Team</button>
-  <div id="registerTeam"></div>
-  </form>
+                            <button id ="registerTeam" button type="button" name="button" class="btn">Register Team</button>
+                            <div id="registerTeam"></div>
+                      </form>
                     </div>
                     <div id="teamdisplay"></div>  
                 </div>
             </div>
-          <!-- <div class="alert alert-error">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <strong>Don't Wait!</strong> Registration will close on Feb 28th!
-          </div>  -->
+          
         </div>
         <!-- <div class="row">
             <div class="span12 box what1">
@@ -362,11 +480,11 @@
             <p>© Company 2013</p>
         </footer>
     </div>
-    <script>
+  <script>
            
-           $(document).ready(function(){
-              //form validation
-              // $("#commentForm").validate();
+    $(document).ready(function(){
+        //form validation
+        // $("#commentForm").validate();
 
 var allTeams = new Array (); //declaring array for all teams in league
 
@@ -513,7 +631,7 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
                 //awayScore = $(".score-visitor").val();
                 //homeScore = 0; 
 
-                $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore' data-awayName='"+ awayTeam +"' data-homeName='"+ homeTeam +"'><input type='num' size='2' maxlength='2' class='score-field score-visitor' /><input type='num' size='2' maxlength='2' class='score-field score-home'/></td><td class='enterscore'><a class='enterscore btn' id='" + w + "' href=''>Enter Score</a></td></tr>")
+                $("#week" + w).append("<div class='schedule'><tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore' data-awayName='"+ awayTeam +"' data-homeName='"+ homeTeam +"'><input type='num' size='2' maxlength='2' class='score-field score-visitor' />-<input type='num' size='2' maxlength='2' class='score-field score-home'/></td><td class='enterscore'><a class='enterscore btn' id='" + w + "' href=''>Enter Score</a></td></tr></div>")
               }//end games loop
 
 
@@ -575,6 +693,12 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
 
       }); //end score input click function
 
+        ///// start of ajax put to add to .wins and .losses of teams based on scores
+        ///// Can't get values pulled out from home and away teams because they're not being
+        ///// assigned using the allTeams array. AKA scores and teams have no relationship right now.
+        ///// tried moving function up into schedule loop, but the loop is already finished so it 
+        ///// will always use the home and away teams from the very last game of the "season". 
+
         function addResults(){
           if(scoreVisitor > scoreHome){
              $.ajax({
@@ -583,11 +707,13 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
               dataType: 'json',
               success: function(data) {
               allTeams = data;
-              ;
+              // if(awayscore > homescore),
+              // then add 1 to the wins value in allTeams array for correct team,
+              // else (add 1 to losses of that team);
              }//end success
           });//end Ajax get
-          }
-        }
+          } //end if
+        } //end addResults
 
       }// end populateSchedule
 
@@ -602,7 +728,9 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
           
       
 
-        </script>
-          </body>
-          </html>
+  </script>
+</body>
+</html>
+
+
 
